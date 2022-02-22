@@ -17,7 +17,8 @@ def get_usable_word(dictionary):
 
     return word
 
-""" For correctly/ incorrectly guessed letters and valid letters """
+""" For correctly/ incorrectly guessed letters and valid letters.
+    And a loop to prevent the use of repeat of already guessed letters """
 
 def hang_man():
     word = get_usable_word(dictionary)
@@ -26,6 +27,12 @@ def hang_man():
     played_letters = set()
 
     user_guess = input('Guess Your Letter: ').upper()
+    if user_guess in alphabet - played_letters:
+        played_letters.add(user_guess)
+        if user_guess in correct_letters:
+            correct_letters.remove(user_guess)
+
+    
 
 player_input  = input('Guess Here: ')
 print(player_input)
