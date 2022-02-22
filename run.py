@@ -25,8 +25,10 @@ def game():
 
 #Added in Error messages when invalid or already guessed letters are entered. This is looped so the game moves smoothly and another attempt is made
 
-    while len(correct_letters) > 0:
-        print('Attempted Letters: ', ' '.join(played_letters))
+    chances = 6
+
+    while len(correct_letters) > 0 and chances > 0:
+        print('You have' , chances, 'chances left. ' 'Attempted Letters: ', ' '.join(played_letters))
 
         word_list = [letter if letter in played_letters else '-' for letter in word]
         print('Word: ', ''.join(word_list))
@@ -36,6 +38,10 @@ def game():
             played_letters.add(user_guess)
             if user_guess in correct_letters:
                 correct_letters.remove(user_guess)
+
+            else:
+                chances = chances - 1   #Takes away a life when incorrect
+                print('This is not in the word!')
 
         elif user_guess in played_letters:
             print('You Have Already Guessed This Letter! Try Again...')
