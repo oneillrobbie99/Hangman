@@ -1,4 +1,4 @@
-""" Import random words from the dictionary to the main .py """
+
 
 import random
 
@@ -6,43 +6,43 @@ import string
 
 from dictionary import dictionary
 
-""" Some words in the list contain a '-' or a ' ' 
-    which won't work in the game so they need to 
-    be skipped for a usable word"""
+# Usable words - remove words from dictionary that are not valid such as '-' and ' ' 
 
 def get_usable_word(dictionary):
     word = random.choice(dictionary)
     while '-' in word or ' ' in word:
         word = random.choice(dictionary)
 
-    return word
+    return word.upper()
 
-""" For correctly/ incorrectly guessed letters and valid letters.
-    And a loop to prevent the use of repeat of already guessed letters """
+# Adding all possible outcomes such as invalid guesses, correct guesses and already guessed letters   
 
-def hang_man():
+def game():
     word = get_usable_word(dictionary)
     correct_letters = set(word)
     alphabet = set(string.ascii_uppercase)
     played_letters = set()
 
+#Added in Error messages when invalid or already guessed letters are entered. This is looped so the game moves smoothly and another attempt is made
 
-while len(correct_letters) > 0:
-    print('Attempted Letters: ', ' '.join(played_letters))
+    while len(correct_letters) > 0:
+        print('Attempted Letters: ', ' '.join(played_letters))
 
-    user_guess = input('Guess Your Letter: ').upper()
-    if user_guess in alphabet - played_letters:
-        played_letters.add(user_guess)
-        if user_guess in correct_letters:
-            correct_letters.remove(user_guess)
+        word_list = [letter if letter in played_letters else '-' for letter in word]
+        print('Word: ', ''.join(word_list))
 
-    elif user_guess in played_letters:
-        print('You Have Already Guessed This Letter! Try Again...')
+        user_guess = input('Guess Your Letter: ').upper()
+        if user_guess in alphabet - played_letters:
+            played_letters.add(user_guess)
+            if user_guess in correct_letters:
+                correct_letters.remove(user_guess)
 
-    else:
-        print('Invalid Guess! Please Try Again')
+        elif user_guess in played_letters:
+            print('You Have Already Guessed This Letter! Try Again...')
 
-player_input  = input('Guess Here: ')
-print(player_input)
+        else:
+            print('Invalid Guess! Please Try Again')
+
+game()
 
 
