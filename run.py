@@ -49,6 +49,11 @@ def game():
         else:
             print('Invalid Guess! Please Try Again')
 
+    if chances == 0:
+        print('You Failed! The word was', word)
+    else:
+        print('You Guessed the word', word, '!!') 
+
 game()
 
 
