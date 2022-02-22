@@ -32,7 +32,11 @@ def hang_man():
         if user_guess in correct_letters:
             correct_letters.remove(user_guess)
 
-    
+    elif user_guess in played_letters:
+        print('You Have Already Guessed This Letter! Try Again...')
+
+    else:
+        print('Invalid Guess! Please Try Again')
 
 player_input  = input('Guess Here: ')
 print(player_input)
