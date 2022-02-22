@@ -26,6 +26,10 @@ def hang_man():
     alphabet = set(string.ascii_uppercase)
     played_letters = set()
 
+
+while len(correct_letters) > 0:
+    print('Attempted Letters: ', ' '.join(played_letters))
+
     user_guess = input('Guess Your Letter: ').upper()
     if user_guess in alphabet - played_letters:
         played_letters.add(user_guess)
