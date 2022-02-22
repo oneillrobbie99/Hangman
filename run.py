@@ -20,9 +20,14 @@ def get_usable_word(dictionary):
 """ For correctly/ incorrectly guessed letters and valid letters """
 
 def hang_man():
-    word = get_usable_word(dictionary)      """ Get from the above usable words """
-    correct_letters = set(word)             """ Correctly guessed letters """  
-    alphabet = set(string.ascii_uppercase)  """ Alphabet all uppercase so no errors """
-    played_letters = set()                  """ Already played letters """
+    word = get_usable_word(dictionary)
+    correct_letters = set(word)
+    alphabet = set(string.ascii_uppercase)
+    played_letters = set()
+
+    user_guess = input('Guess Your Letter: ').upper()
+
+player_input  = input('Guess Here: ')
+print(player_input)
 
 
