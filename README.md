@@ -17,3 +17,34 @@
 
 ![](assets/images/CorrectGuess.png)
 
+## Testing
+
+<p> I have manually tested the project through </p>
+
+- PEP8 linter which confirmed some bugs
+- I entered invalid inputs, after which the game showed an error message and required me to try again. I also entered repeated letters for which the game also required a resubmission.
+- Tested the code in my local terminal. 
+
+# Future Features
+
+- Adding a visual for the hangman into the terminal.
+
+## Fixed Bugs
+
+- A major bug found was spacing. Errors would show due to the incorrect indentation in my code which was fixed after searching for incorrect indentation.
+
+## Deployment
+
+The code was deployed using Code institutes mock terminal for Heroku.
+
+- Fork or clone the repository
+- Create the new heroku app
+- Set the buildbacks to Python and NodeJS
+- Link the Heroku app to my github repository
+- Click on deploy
+
+## Credits
+
+- Code intsitute for the deployment terminal
+- Help from https://www.youtube.com/watch?v=6DFZeuD9kVY&ab_channel=NovelTechMedia
+
