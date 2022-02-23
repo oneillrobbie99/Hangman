@@ -41,7 +41,7 @@ def game():
 
             else:
                 chances = chances - 1   #Takes away a life when incorrect
-                print('This is not in the word!')
+                print('This is not in the word!/n')
 
         elif user_guess in played_letters:
             print('You Have Already Guessed This Letter! Try Again...')
